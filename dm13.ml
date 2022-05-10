@@ -86,32 +86,3 @@ let rec parent itree node index =
                  (-1)
 ;;
 
-let chemin tree ni nj =
-  let itree = convert tree in
-  let rec distance itree ni nj =
-    match itree with
-    | ILeaf i -> if ni = i then 1 else -1
-    | ITree(_,_,_) ->
-    if ni = nj then
-      1
-    else if m_from_l itree ni > nj then
-      let lt, rt = match itree with ITree(a, b, i) -> a, b | ILeaf i -> (ILeaf i, ILeaf i) in
-      let ilt, irt = (match lt with ITree(a, b, i) -> i | ILeaf i -> i), (match rt with ITree(a, b, i) -> i | ILeaf i -> i) in
-      if ilt = nj || irt = nj then
-        0
-      else (
-        print_tree lt;
-        print_tree rt;
-        1 + min (distance lt ilt nj) (distance rt irt nj)
-      )
-    else (
-      let p = parent itree ni 0 in
-      print_int p;
-      if not (p = -1) then
-        1 + (distance itree p nj)
-      else
-        453405840985
-    )
-  in
-  distance itree ni nj
-;;
