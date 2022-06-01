@@ -4,5 +4,8 @@
 		"cstdlib": "c",
 		"memory": "c",
 		"new": "c"
+	},
+	"ocaml.sandbox": {
+		"kind": "global"
 	}
 }

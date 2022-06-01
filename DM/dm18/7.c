@@ -16,7 +16,7 @@ bool est_premier(int n, int list[], int found) {
 }
 
 int main() {
-	int* list = malloc(10002 * sizeof(int));
+	int* list = malloc(10003 * sizeof(int));
 	int found = 0;
 	int i = 1;
 	while (found <= 100001) {
